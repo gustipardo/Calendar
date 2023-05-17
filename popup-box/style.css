@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Trenda-Black';
+    src: url(../Latinotype-Trenda-Black.otf);
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Trenda-SemiBold';
+    src: url(../Latinotype-Trenda-Semibold.woff);
+    font-style: normal;
+}
+
+*{
+    font-family: 'Trenda-SemiBold';
+}
+
+:root {
+    --off-white: rgb(237, 237, 250);
+    --submit1: rgb(137, 99, 255);
+    --submit2: rgb(85, 107, 244);
+    --font: rgb(53, 66, 90);
+    --box: rgb(215, 215, 215);
+}
+
+body{
+    background-color: var(--off-white);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 50px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.popup-content h2 {
+    margin-top: 16px;
+    font-size: 32px;
+    font-family: 'Trenda-Black';
+    text-align: center;
+}
+
+.popup-content label {
+    display: flex;
+    margin-bottom: 20px;
+    font-size: 26px;
+    margin-left: 60px;
+    align-items: center;
+}
+
+.popup-content label input[type="checkbox"] {
+    margin-right: 20px;
+}
+
+.popup-content label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.8);
+    -webkit-transform: scale(1.8); /* Safari and Chrome */
+    -moz-transform: scale(1.8); /* Firefox */
+    -ms-transform: scale(1.8); /* IE 9 */
+    -o-transform: scale(1.8); /* Opera */
+}
+
+.popup-content input{
+    accent-color: var(--submit1);
+}
+
+.popup-content label input[type="checkbox"]:checked {
+    background-color: green;
+}
+
+.popup-content button {
+    display: block;
+    margin: 20px auto 0;
+}
+
+.popup-content__button{
+    background-image: linear-gradient(to bottom, var(--submit1), var(--submit2));
+    color: white;
+    width: 180px;
+    height: 60px;
+    font-size: 26px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Trenda-Black';
+}
+
+
+
+
+
+
+
