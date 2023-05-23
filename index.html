@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Empresa de Tutoria</title>
+	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/c20c1c327a.js" crossorigin="anonymous"></script>
+</head>
+<body >
+    <div id="popup" class="popup">
+        <div class="popup-content">
+        <h2>¿Que Materias estas rindiendo?</h2>
+        <label>
+            <input class="chrckbox-rect" type="checkbox"  value="Algebra">Algebra
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Algoritmos Y Estructura de Datos">Algoritmos Y Estructura de Datos
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Análisis Matemático">Análisis Matemático
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Arquitectura de Computadores">Arquitectura de Computadores
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Física 1">Física 1
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox"  value="Ingenieria y sociedad">Ingeniería Y Sociedad
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Ingles 1">Ingles 1
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Lógica y estructura de datos">Lógica y estructura de datos
+        </label>
+        <label>
+            <input class="chrckbox-rect" type="checkbox" value="Sistemas y procesos de negocios">Sistemas y procesos de negocios
+        </label>
+
+        <button class="popup-content__button" id="Accept">ACEPTAR</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="nav-conteiner">
+        <img class="UTN-Logo" src="./files/logo-utn.png">
+    <button class="nav-conteiner__Subjects" id="Subjects">
+        Materias
+    </button>
+</div>
+    <div class="Calendar" id="CalendarID">
+        <div class="Calendar-options">
+            
+            <button class="Calendar-options___button" id="Previus-Month">
+                <i class="fa-solid fa-chevron-left fa-lg" style="color: #333335;"></i>
+            </button>
+
+            <div class="Calendar-options__Month" id="MonthID"></div>
+
+            <button class="Calendar-options___button" id="Next-Month">
+                <i class="fa-solid fa-chevron-right fa-lg" style="color: #333335;"></i>
+            </button>
+    </div>
+    </div>
+    
+
+<script src="code.js"></script>
+</body>
+</html>
