@@ -31,7 +31,7 @@ body{
     flex-direction: column;
 }
 
-.Calendar{
+.Calendar {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
@@ -66,12 +66,13 @@ body{
     font-size: 26px;
     color: white;
     text-align: center;
-    border: solid black;
     min-width: 150px;
     flex-grow: 1;
     flex: 0 0 calc(100% / 7);
     text-align: center;
     background-color: beige;
+    box-sizing: border-box;
+    /* margin: -3px; */
     border: 3px black solid;
     flex-basis: calc(100% / 7);
     height: 140px;
@@ -97,7 +98,8 @@ body{
 
 .highlighted{
     color: #333335;
-    border: white solid ;
+    border: #008FFF solid ;
+    z-index: 10;
 }
 
 .Exam{
@@ -142,10 +144,14 @@ body{
 
 .UTN-Logo{
     height: 8vh;
-
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+     -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    pointer-events: none; /* Evita eventos de puntero en la imagen */
 }
 
-p{
+p {
     color: black;
     background-color: rgb(214, 211, 203);
     font-size: 26px;
@@ -242,3 +248,36 @@ p{
     text-align: center;
 }
 
+.popup-message{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        opacity: 1;
+        animation: showAndFade 1s ease-in-out forwards;
+        display: none;
+        user-select: none;
+        z-index: 100;
+        color: #ff3333;
+}
+
+@keyframes showAndFade {
+    0% {
+    opacity: 0;
+    display: block;
+    }
+    10% {
+    opacity: 1;
+    }
+    90% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    display: none;
+    }
+}

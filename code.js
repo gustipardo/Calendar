@@ -10,16 +10,19 @@ let Month = ActualMonth;
 let Year = ActualYear;
 let DaysOfMonth = new Date(CurrentDate.getFullYear(), Month, 0).getDate();
 let UserSubjects = localStorage.getItem("Subjects");
+let subjectErrors = [];
 
 document.addEventListener("DOMContentLoaded", function() {
     daysCreator();
     if(UserSubjects==null|UserSubjects==""){
         showPopup();
     }
+    
 });
 
 //Crea los divs para cada dia del mes segun la fecha.
 const Calendar = document.getElementById("CalendarID");
+
 const daysCreator = ()=>{
     let DaysOfMonth = new Date(CurrentDate.getFullYear(), Month, 0).getDate();
     if (Year % 4 === 0 && Month===1) {
@@ -120,10 +123,13 @@ async function getDate(materia, tipoEvento) {
     }
 }
 
+// Busca las fehcas de exames de cada materia que reciba y llama a la funcion MarcarFechas para cada una.
+
 const MarkExamns = async  (Subjects)=>{
     const SubjectsArray = Subjects.split(',');
     console.log(SubjectsArray);
-    
+    subjectErrors = [];
+
     for (const Subject of SubjectsArray) {
         let ExamDate = await  getDate(Subject,"Examen");
 
@@ -131,22 +137,31 @@ const MarkExamns = async  (Subjects)=>{
             const { year, month, day} = ExamDate;
             
             MarkDate(year, month, day, "Exam", Subject);
-            
-            // console.log(`Fecha del examen de ${Subject}: ${year}-${month}-${day}`);
+
         }
         else{
-            console.log(`No se encontró la fecha del examen de ${Subject}`);
+            subjectErrors.push(`Fecha de examen de ${Subject} no encontrada`)
+            console.log(subjectErrors);
         }
 
     };
+    console.log(subjectErrors);
+    if(subjectErrors!==null && subjectErrors!==""){
+        if(enEjecucion){
+            clearTimeout(timeout1);
+            clearTimeout(timeout2);
+            showPopupMessages();
+        } else {showPopupMessages();}
+    }
 }
 
 
 const accept = document.getElementById("Accept");
-
+//Guarda los valores que selecciono el usuario y actualiza todos los datos.
 accept.addEventListener("click", function() {
     const inputs = document.querySelectorAll("input[type='checkbox']");
     const UserSelected = [];
+    
     inputs.forEach(input => {
     if(input.checked){
         UserSelected.push(input.value);
@@ -156,8 +171,7 @@ accept.addEventListener("click", function() {
     UserSubjects = localStorage.getItem("Subjects");
     hiddePopup();
     daysEliminate();
-    daysCreator();
-    MarkExamns(UserSubjects);
+    daysCreator();  
 });
 
 const popup = document.getElementById("popup");
@@ -168,4 +182,46 @@ function hiddePopup() {
 
 function showPopup() {
     popup.style.display = "block";
+    checkUserSubjects(UserSubjects);
 }
+
+const checkUserSubjects = (values)=>{
+    const SubjectsArray = values.split(',');
+        SubjectsArray.forEach(function(valor) {
+        let input = document.querySelector('input[value="' + valor + '"]');
+        if (input) {
+            input.checked = true;
+        }
+        });
+    }
+    var timeout1;
+    var timeout2;
+    var enEjecucion = false;
+
+
+const showPopupMessageBox = (message, duration)=> {
+    let popupMessage = document.getElementById("msg");
+    if(message!==null|message!==" "){
+    popupMessage.textContent = message;
+    popupMessage.style.display = "block";
+    popupMessage.style.animationDuration = duration + "ms";
+    enEjecucion = true;
+    timeout1 = setTimeout(function() {
+        popupMessage.style.display = "none";
+        enEjecucion = false;
+    }, duration);
+    }
+}
+
+const showPopupMessages = ()=>{
+    showPopupMessageBox(subjectErrors.shift(),4000);
+    
+    if (subjectErrors.length>0){
+        enEjecucion = true;
+        timeout2 = setTimeout(function() {
+            showPopupMessages();
+            enEjecucion = false;
+        }, 4200);
+    }
+}
+
