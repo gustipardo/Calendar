@@ -1,7 +1,6 @@
 
 const CurrentDate = new Date();
-const Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Obtubre", "Noviembre", "Diciembre"]
-
+const Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Obtubre", "Noviembre", "Diciembre"];
 const ActualMonth = CurrentDate.getMonth()+1;
 const ActualYear = CurrentDate.getFullYear();
 const ActualDay = CurrentDate.getDate();
@@ -13,6 +12,7 @@ let UserSubjects = localStorage.getItem("Subjects");
 let subjectErrors = [];
 
 document.addEventListener("DOMContentLoaded", function() {
+    
     daysCreator();
     if(UserSubjects==null|UserSubjects==""){
         showPopup();
@@ -28,6 +28,7 @@ const daysCreator = ()=>{
     if (Year % 4 === 0 && Month===1) {
         DaysOfMonth = 29
     }
+    DayOrder(FirstDayofMonth(Month, Year))
     for (let index = 1; index <= DaysOfMonth; index++) {
         const miDiv = document.createElement('div');
         const miH3 = document.createElement('h3');
@@ -53,6 +54,27 @@ const daysCreator = ()=>{
     MarkExamns(UserSubjects);
 }
 
+const FirstDayofMonth = (month, year)=>{
+    let firstDay = new Date(year, month-1, 1);
+    let weekDayNumber = firstDay.getDay();
+    weekDayNumber = weekDayNumber===0 ? 7 
+                                    : weekDayNumber
+    return weekDayNumber;
+};
+
+const DayOrder = (FirstWeekDay)=>{
+        const Days = [ "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+        let weekDay = Days[FirstWeekDay-1];
+
+    for (let index = 1; index <= FirstWeekDay-1; index++) {
+        const miDiv = document.createElement('div');
+        miDiv.classList.add('dayOfCalendar');
+        miDiv.id=index;
+        Calendar.appendChild(miDiv);
+        }
+    return weekDay;
+}
+
 const MarkDate = (Year, Month, Day, className, reason) => {   
     let MonthConteiner = document.getElementById("MonthID").textContent;
     let miP = document.getElementById("p-"+Day);
@@ -71,8 +93,8 @@ const MarkDate = (Year, Month, Day, className, reason) => {
 
 // Elimina todos los divs de los dias.
 const daysEliminate = ()=>{
-    while (Calendar.childNodes[2]) {
-        Calendar.removeChild(Calendar.childNodes[2]);
+    while (Calendar.childNodes[15]) {
+        Calendar.removeChild(Calendar.lastChild);
     }
 }
 
@@ -194,9 +216,9 @@ const checkUserSubjects = (values)=>{
         }
         });
     }
-    var timeout1;
-    var timeout2;
-    var enEjecucion = false;
+    let timeout1;
+    let timeout2;
+    let enEjecucion = false;
 
 
 const showPopupMessageBox = (message, duration)=> {
