@@ -15,6 +15,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 :root {
@@ -29,6 +30,7 @@ body{
     display: flex;
     background-color: var(--off-white);
     flex-direction: column;
+    font-size: 13px;
 }
 
 .Calendar {
@@ -43,8 +45,7 @@ body{
     margin: auto;
     flex-grow: 1;
     flex-wrap: wrap;
-    height: calc(100vh - 13vh);
-    overflow-y: auto;
+    height: calc(100vh-13vh);
 }
 
 .Calendar-days{
@@ -54,22 +55,65 @@ body{
 }
 
 .dayOfCalendar{
+    font-size: 2em;
     background-color: var(--off-white);
     user-select: none;
-    font-size: 26px;
     color: white;
     text-align: center;
-    min-width: 150px;
     flex-grow: 1;
     flex: 0 0 calc(100% / 7);
     text-align: center;
     background-color: beige;
     box-sizing: border-box;
-    /* margin: 1px; */
     border: 3px black solid;
-    flex-basis: calc(100% / 7);
     height: 140px;
+    max-width: calc(100% / 7);
 }
+
+
+@media only screen and (max-width: 990px) {
+    .Calendar{
+    padding: 20px;
+    margin: 0px;
+    width: 100vw;
+    }
+    /* .weekday, .dayOfCalendar-text, .dayOfCalendar{
+        font-size: 12px;
+    } */
+    body {
+        font-size: 10px;
+    }
+    .UTN-Logo{
+        height: 4vh;
+    }
+
+    .dayOfCalendar{
+        height: 125px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .Calendar{
+    padding: 20px;
+    margin: 0px;
+    width: 100vw;
+    height: 87vh;
+    }
+    /* .weekday, .dayOfCalendar-text, .dayOfCalendar{
+        font-size: 12px;
+    } */
+    body {
+        font-size: 8px;
+    }
+    .UTN-Logo{
+        height: 4vh;
+    }
+
+    .dayOfCalendar{
+        height: 120px;
+    }
+}
+
 
 .weekday{
     color: #333335;
@@ -86,7 +130,7 @@ body{
 .Calendar-options__Month {
     display: inline-block;
     text-align: center;
-    font-size: 32px;
+    font-size: 2.6em;
     max-height: 32px;
 }
 
@@ -94,6 +138,7 @@ body{
 
 .dayOfCalendar-number{
     background-image: linear-gradient(to bottom, var(--submit1), var(--submit2));
+    font-size: 1em;
 }
 
 
@@ -102,10 +147,10 @@ body{
     border: #333335 solid;
     border-width: 3px;
     color: white;
-    width: 60px;
-    height: 60px;
-    font-size: 26px;
-    border-radius: 30px;
+    width: 2.5em;
+    height: 2.5em;
+    font-size: 2em;
+    border-radius: 100%;
     font-family: 'Trenda-Black';
     margin-bottom: 5px;
 }
@@ -125,7 +170,8 @@ body{
     display: flex;
     background-color: var(--off-white);
     /* background-color: #333335; */
-    position: stick;
+    position: sticky;
+    top: 0px;
     width: 100%;
     margin-bottom: 2vh;
     border-bottom: rgb(200, 200, 200) solid;
@@ -133,6 +179,8 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+
+
 
 .nav-conteiner__Subjects{
     /* background-image: linear-gradient(to bottom, var(--submit1), var(--submit2));
@@ -144,7 +192,7 @@ body{
     border-radius: 10px;
     font-family: 'Trenda-Black'; */
     font-family: 'Trenda-Black';
-    font-size: 26px;
+    font-size: 2.4em;
     margin-right: 30px;
     user-select: none;
     border: none;
@@ -168,7 +216,7 @@ body{
 p {
     color: black;
     background-color: rgb(214, 211, 203);
-    font-size: 26px;
+    font-size: 1em;
 }
 
 
@@ -187,7 +235,7 @@ p {
 
 .popup-content h2 {
     margin-top: 16px;
-    font-size: 32px;
+    font-size: 3em;
     font-family: 'Trenda-Black';
     text-align: center;
 }
@@ -195,7 +243,7 @@ p {
 .popup-content label {
     display: flex;
     margin-bottom: 20px;
-    font-size: 26px;
+    font-size: 2em;
     margin-left: 60px;
     align-items: center;
 }
@@ -231,7 +279,7 @@ p {
     color: white;
     width: 180px;
     height: 60px;
-    font-size: 26px;
+    font-size: 2em;
     border: none;
     border-radius: 10px;
     font-family: 'Trenda-Black';
