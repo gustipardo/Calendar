@@ -337,7 +337,7 @@ h2{
 
 @media only screen and (max-width: 620px) {
     .Calendar{
-    padding: 20px;
+    padding: 0px;
     margin: 0px;
     width: 100vw;
     height: 87vh;
@@ -356,9 +356,15 @@ h2{
     .dayOfCalendar.weekday {
         font-size: 0px;
     }
-
+    .dayOfCalendar{
+        height: 100px;
+    }
+    
     .dayOfCalendar.weekday::after {
         content: attr(data-initial);
         font-size: 16px;
+    }
+    .weekday{
+        height: auto;
     }
 }
