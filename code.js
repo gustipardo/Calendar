@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const Calendar = document.getElementById("CalendarID");
 
 const daysCreator = ()=>{
+    
     let DaysOfMonth = new Date(CurrentDate.getFullYear(), Month, 0).getDate();
     if (Year % 4 === 0 && Month===1) {
         DaysOfMonth = 29
@@ -78,13 +79,18 @@ const DayOrder = (FirstWeekDay)=>{
 const MarkDate = (Year, Month, Day, className, reason) => {   
     let MonthConteiner = document.getElementById("MonthID").textContent;
     let miP = document.getElementById("p-"+Day);
+    const miH4 = document.createElement('h4');
     if(MonthConteiner.includes(Year) && MonthConteiner.includes(Months[Month-1])){
         
         for(let index = 1; index < DaysOfMonth; index++){
             let div = document.getElementById(index);
+            let h3 = document.getElementById("day-"+index);
             if (parseInt(div.textContent) === Day) {
                 div.classList.add(className);
                 miP.innerHTML = reason;
+                h3.innerHTML="";
+                miH4.innerHTML = index;
+                h3.appendChild(miH4);
                 break;
             }
         }
@@ -257,3 +263,11 @@ window.addEventListener('DOMContentLoaded', function() {
         element.setAttribute('data-initial', firstChar);
     }
 });
+
+const TodayHighlight = ()=>{
+    let highlighted = document.getElementById("day-25");
+    const miH4 = document.createElement('h4');
+    highlighted.innerHTML="";
+    miH4.innerHTML = "23";
+    highlighted.appendChild(miH4);
+}
