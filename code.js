@@ -140,7 +140,7 @@ async function getDate(materia, tipoEvento) {
         return null; // Devolver null si no se encuentra la materia o el tipo de evento
     }
     } catch (error) {
-    console.error('Error al obtener la fecha:', error);
+    // console.error('Error al obtener la fecha:', error);
     return null;
     }
 }
@@ -149,7 +149,7 @@ async function getDate(materia, tipoEvento) {
 
 const MarkExamns = async  (Subjects)=>{
     const SubjectsArray = Subjects.split(',');
-    console.log(SubjectsArray);
+    // console.log(SubjectsArray);
     subjectErrors = [];
 
     for (const Subject of SubjectsArray) {
@@ -163,11 +163,11 @@ const MarkExamns = async  (Subjects)=>{
         }
         else{
             subjectErrors.push(`Fecha de examen de ${Subject} no encontrada`)
-            console.log(subjectErrors);
+            // console.log(subjectErrors);
         }
 
     };
-    console.log(subjectErrors);
+    // console.log(subjectErrors);
     if(subjectErrors!==null && subjectErrors!==""){
         if(enEjecucion){
             clearTimeout(timeout1);
@@ -246,3 +246,14 @@ const showPopupMessages = ()=>{
         }, 4200);
     }
 }
+
+window.addEventListener('DOMContentLoaded', function() {
+    let elements = document.querySelectorAll('.weekday');
+    
+    for (var i = 0; i < elements.length; i++) {
+        let element = elements[i];
+        let content = element.textContent;
+        let firstChar = content.charAt(0);
+        element.setAttribute('data-initial', firstChar);
+    }
+});

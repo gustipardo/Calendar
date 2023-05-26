@@ -46,6 +46,7 @@ body{
     flex-grow: 1;
     flex-wrap: wrap;
     height: calc(100vh-13vh);
+
 }
 
 .Calendar-days{
@@ -71,48 +72,7 @@ body{
 }
 
 
-@media only screen and (max-width: 990px) {
-    .Calendar{
-    padding: 20px;
-    margin: 0px;
-    width: 100vw;
-    }
-    /* .weekday, .dayOfCalendar-text, .dayOfCalendar{
-        font-size: 12px;
-    } */
-    body {
-        font-size: 10px;
-    }
-    .UTN-Logo{
-        height: 4vh;
-    }
 
-    .dayOfCalendar{
-        height: 125px;
-    }
-}
-
-@media only screen and (max-width: 620px) {
-    .Calendar{
-    padding: 20px;
-    margin: 0px;
-    width: 100vw;
-    height: 87vh;
-    }
-    /* .weekday, .dayOfCalendar-text, .dayOfCalendar{
-        font-size: 12px;
-    } */
-    body {
-        font-size: 8px;
-    }
-    .UTN-Logo{
-        height: 4vh;
-    }
-
-    .dayOfCalendar{
-        height: 120px;
-    }
-}
 
 
 .weekday{
@@ -181,7 +141,6 @@ body{
 }
 
 
-
 .nav-conteiner__Subjects{
     /* background-image: linear-gradient(to bottom, var(--submit1), var(--submit2));
     color: white;
@@ -238,6 +197,10 @@ p {
     font-size: 3em;
     font-family: 'Trenda-Black';
     text-align: center;
+}
+
+h2{
+    margin-bottom: 20px;
 }
 
 .popup-content label {
@@ -325,6 +288,7 @@ p {
         user-select: none;
         z-index: 100;
         color: #ff3333;
+        font-size: 2em;
 }
 
 @keyframes showAndFade {
@@ -341,5 +305,60 @@ p {
     100% {
     opacity: 0;
     display: none;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .Calendar{
+    padding: 20px;
+    margin: 0px;
+    width: 100vw;
+    width: 100%;
+    }
+    /* .weekday, .dayOfCalendar-text, .dayOfCalendar{
+        font-size: 12px;
+    } */
+    body {
+        font-size: 10px;
+    }
+    .UTN-Logo{
+        height: 70px;
+    }
+    .nav-conteiner__Subjects{
+        margin-right: 20px;
+    }
+}
+
+.dayOfCalendar.weekday {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 620px) {
+    .Calendar{
+    padding: 20px;
+    margin: 0px;
+    width: 100vw;
+    height: 87vh;
+    width: 100%;
+    }
+    body {
+        font-size: 8px;
+    }
+    .UTN-Logo{
+        height: 50px;
+    }
+    .nav-conteiner__Subjects{
+        margin-right: 10px;
+    }
+    
+    .dayOfCalendar.weekday {
+        font-size: 0px;
+    }
+
+    .dayOfCalendar.weekday::after {
+        content: attr(data-initial);
+        font-size: 16px;
     }
 }
