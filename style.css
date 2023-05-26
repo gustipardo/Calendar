@@ -36,7 +36,6 @@ body{
 .Calendar {
     background-color: white;
     display: flex;
-    flex-wrap: wrap;
     padding: 40px;
     padding-top: 20px;
     border-radius: 50px;
@@ -46,13 +45,15 @@ body{
     flex-grow: 1;
     flex-wrap: wrap;
     height: calc(100vh-13vh);
-
 }
 
 .Calendar-days{
     display: flex;
     flex-wrap: wrap;
     height: auto;
+    margin: auto;
+    /* width: 1300px; */
+    margin-left: 21px;
 }
 
 .dayOfCalendar{
@@ -62,23 +63,24 @@ body{
     color: white;
     text-align: center;
     flex-grow: 1;
-    flex: 0 0 calc(100% / 7);
     text-align: center;
     background-color: beige;
     box-sizing: border-box;
     border: 3px black solid;
-    margin: -2px;
+    margin-left: -3px;
+    margin-bottom: -3px; 
     height: 140px;
-    max-width: calc(100% / 7);
+    flex: 0 0  calc(100% / 7);
+    min-width: calc(100% / 7);
 }
-
-
 
 
 
 .weekday{
     color: #333335;
     height: auto;
+    /* flex: 1 0 calc(100% / 7);
+    min-width: calc(100% / 7); */
 }
 
 .Calendar-options{
@@ -86,6 +88,7 @@ body{
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    margin: 0px 21px;
 }
 
 .Calendar-options__Month {
@@ -385,10 +388,26 @@ h2{
     }
     .dayOfCalendar{
         height: 100px;
-        border: 1px black solid;
+        border: 2px black solid;
+    margin-left: -2px;
+    margin-bottom: -2px; 
     }
+
+    .Calendar-days{
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        margin: auto;
+        /* width: 1300px; */
+        margin-left: 14px;
+    }
+
+    .Calendar-options{
+        margin: 0px 14px;
+    }
+
     p{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     
     .dayOfCalendar.weekday::after {
@@ -398,4 +417,8 @@ h2{
     .weekday{
         height: auto;
     }
+    .highlighted h4, .Exam h4{
+        width: 25px;
+    }
+
 }
