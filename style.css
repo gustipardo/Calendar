@@ -412,7 +412,7 @@ h2{
     }
 
     p{
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
     
     .dayOfCalendar.weekday::after {
@@ -426,4 +426,19 @@ h2{
         width: 25px;
     }
 
+    .popup-content{
+        width: 110%;
+        border-radius: 75px;
+    }
+    .popup-content h2{
+        width: 80%;
+        margin: auto;
+        margin-bottom: 20px;
+        
+    }
+
+    .popup-content__button{
+        width: 100px;
+        height: 50px;
+    }
 }
