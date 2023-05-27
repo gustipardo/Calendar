@@ -26,7 +26,7 @@ const Calendar = document.getElementById("CalendarID");
 const daysCreator = ()=>{
     
     let DaysOfMonth = new Date(CurrentDate.getFullYear(), Month, 0).getDate();
-    if (Year % 4 === 0 && Month===1) {
+    if (Year % 4 === 0 && Month===2) {
         DaysOfMonth = 29
     }
     DayOrder(FirstDayofMonth(Month, Year))
