@@ -229,7 +229,7 @@ const checkUserSubjects = (values)=>{
 
 const showPopupMessageBox = (message, duration)=> {
     let popupMessage = document.getElementById("msg");
-    if(message!==null|message!==" "){
+    if(message!==null && message!=="" && message!==undefined){ 
     popupMessage.textContent = message;
     popupMessage.style.display = "block";
     popupMessage.style.animationDuration = duration + "ms";
